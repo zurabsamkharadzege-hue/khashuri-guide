@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -9,16 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b0f14;
-      --surface: #121821;
-      --surface-2: #18212d;
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f3f6fa;
+      --bg: #090d12;
+      --surface: #111720;
+      --surface-2: #17202c;
+      --surface-3: #1e2938;
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f8fafc;
       --muted: #94a3b8;
       --amber: #f59e0b;
-      --amber-soft: rgba(245, 158, 11, 0.14);
+      --amber-soft: rgba(245, 158, 11, 0.15);
       --emerald: #10b981;
-      --emerald-soft: rgba(16, 185, 129, 0.14);
+      --emerald-soft: rgba(16, 185, 129, 0.15);
       --rose: #f43f5e;
       --radius: 16px;
     }
@@ -30,6 +31,7 @@
       font-family: 'Inter', 'Noto Sans Georgian', system-ui, -apple-system, sans-serif;
       min-height: 100vh;
       -webkit-tap-highlight-color: transparent;
+      line-height: 1.45;
     }
 
     body.lang-ge .mtavruli {
@@ -40,49 +42,49 @@
     }
 
     .app-shell {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding-bottom: 76px;
+      padding-bottom: 82px;
     }
 
-    /* Compact 46px Top Bar */
+    /* Compact 48px Top Bar */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 40;
-      height: 46px;
-      background: rgba(11, 15, 20, 0.92);
+      height: 48px;
+      background: rgba(9, 13, 18, 0.94);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 12px;
+      padding: 0 14px;
       gap: 8px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       min-width: 0;
     }
 
     .brand-mark {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 9px;
       background: linear-gradient(135deg, var(--emerald), #059669);
-      color: #06130d;
+      color: #05130c;
       font-weight: 800;
-      font-size: 14px;
+      font-size: 15px;
       display: grid;
       place-items: center;
       flex-shrink: 0;
     }
 
     .brand-title {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
@@ -90,7 +92,7 @@
     }
 
     .brand-sub {
-      font-size: 10px;
+      font-size: 10.5px;
       color: var(--amber);
       white-space: nowrap;
     }
@@ -107,7 +109,7 @@
       background: var(--surface-2);
       color: var(--text);
       border-radius: 10px;
-      padding: 6px 10px;
+      padding: 6px 11px;
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
@@ -118,21 +120,21 @@
       text-decoration: none;
     }
 
+    .btn:hover { background: var(--surface-3); }
     .btn:active { transform: scale(0.97); }
     .btn-amber {
       background: var(--amber);
       color: #140e02;
       border-color: transparent;
     }
+    .btn-amber:hover { background: #fbbf24; }
     .btn-emerald {
       background: var(--emerald);
       color: #05140e;
       border-color: transparent;
     }
-    .btn-ghost {
-      background: transparent;
-    }
-    .btn-sm { padding: 5px 8px; font-size: 11px; border-radius: 8px; }
+    .btn-emerald:hover { background: #34d399; }
+    .btn-sm { padding: 5px 9px; font-size: 11.5px; border-radius: 8px; }
 
     .lang-switch {
       display: inline-flex;
@@ -148,7 +150,7 @@
       color: var(--muted);
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 7px;
+      padding: 3px 8px;
       border-radius: 7px;
       cursor: pointer;
     }
@@ -158,17 +160,17 @@
       color: #130d02;
     }
 
-    /* Main Content */
-    .main { padding: 14px 12px 24px; }
+    .main { padding: 16px 14px 28px; }
 
+    /* Hero Banner with Clean Photography & Gradient Scrim */
     .hero {
       position: relative;
-      border-radius: var(--radius);
+      border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--border);
-      background: var(--surface);
-      margin-bottom: 14px;
-      min-height: 210px;
+      background: #0e151f;
+      margin-bottom: 16px;
+      min-height: 220px;
       display: flex;
       align-items: flex-end;
     }
@@ -179,29 +181,58 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.42;
+      object-position: center;
+      filter: brightness(0.78) saturate(1.1);
     }
 
     .hero-overlay {
       position: relative;
       z-index: 2;
       width: 100%;
-      padding: 16px;
-      background: linear-gradient(180deg, rgba(11,15,20,0.12) 0%, rgba(11,15,20,0.88) 72%, rgba(11,15,20,0.96) 100%);
+      padding: 22px 20px;
+      background: linear-gradient(180deg, rgba(9, 13, 18, 0.15) 0%, rgba(9, 13, 18, 0.78) 55%, rgba(9, 13, 18, 0.96) 100%);
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .hero h1 { font-size: 20px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
-    .hero p { font-size: 13px; color: #cbd5e1; max-width: 560px; }
+    .hero-kicker {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #6ee7b7;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
 
+    .hero h1 {
+      font-size: 23px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 13.5px;
+      color: #e2e8f0;
+      max-width: 580px;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Controls */
     .controls {
       display: grid;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .search-row {
@@ -216,7 +247,7 @@
       border: 1px solid var(--border);
       color: var(--text);
       border-radius: 12px;
-      padding: 10px 12px;
+      padding: 10px 13px;
       font-size: 13px;
       font-family: inherit;
       outline: none;
@@ -228,9 +259,9 @@
 
     .pills {
       display: flex;
-      gap: 6px;
+      gap: 7px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding-bottom: 2px;
       scrollbar-width: none;
     }
     .pills::-webkit-scrollbar { display: none; }
@@ -241,11 +272,14 @@
       background: var(--surface);
       color: var(--muted);
       border-radius: 999px;
-      padding: 6px 12px;
+      padding: 6px 13px;
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.14s ease;
     }
+
+    .pill:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
 
     .pill.active {
       background: var(--emerald-soft);
@@ -259,10 +293,11 @@
       border-color: rgba(244, 63, 94, 0.45);
     }
 
+    /* Organization Cards */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+      gap: 16px;
     }
 
     .card {
@@ -272,18 +307,34 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: border-color 0.15s ease, transform 0.15s ease;
+      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .card:hover { border-color: rgba(245, 158, 11, 0.38); }
-    .card.is-vip { border-color: rgba(245, 158, 11, 0.55); box-shadow: 0 8px 24px rgba(245, 158, 11, 0.08); }
+    .card:hover {
+      border-color: rgba(245, 158, 11, 0.42);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .card.is-vip {
+      border-color: rgba(245, 158, 11, 0.55);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.08);
+    }
 
     .card-media {
       position: relative;
-      height: 184px;
-      background: var(--surface-2);
+      height: 196px;
+      background: #161f2c;
       cursor: pointer;
       overflow: hidden;
+    }
+
+    .card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9,13,18,0.28) 0%, rgba(9,13,18,0) 42%, rgba(9,13,18,0.62) 100%);
+      pointer-events: none;
     }
 
     .card-media img {
@@ -291,6 +342,11 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover .card-media img {
+      transform: scale(1.04);
     }
 
     .card-badges {
@@ -298,6 +354,7 @@
       top: 10px;
       left: 10px;
       right: 10px;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -306,52 +363,66 @@
     }
 
     .badge {
-      padding: 4px 8px;
+      padding: 4px 9px;
       border-radius: 8px;
       font-size: 11px;
       font-weight: 700;
       backdrop-filter: blur(8px);
     }
 
-    .badge-vip { background: rgba(245, 158, 11, 0.92); color: #150e02; }
-    .badge-cat { background: rgba(11, 15, 20, 0.78); color: #e2e8f0; border: 1px solid var(--border); }
+    .badge-vip { background: rgba(245, 158, 11, 0.95); color: #150e02; }
+    .badge-cat { background: rgba(9, 13, 18, 0.78); color: #f1f5f9; border: 1px solid rgba(255,255,255,0.14); }
     .badge-rating {
       position: absolute;
       bottom: 10px;
       right: 10px;
-      background: rgba(11, 15, 20, 0.86);
+      z-index: 2;
+      background: rgba(9, 13, 18, 0.86);
       color: #fbbf24;
-      border: 1px solid rgba(251, 191, 36, 0.35);
-      padding: 4px 8px;
+      border: 1px solid rgba(251, 191, 36, 0.38);
+      padding: 4px 9px;
       border-radius: 8px;
       font-size: 12px;
       font-weight: 700;
+      backdrop-filter: blur(8px);
     }
 
     .card-body {
-      padding: 13px;
+      padding: 15px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 9px;
       flex: 1;
     }
 
     .card-title {
-      font-size: 16px;
+      font-size: 16.5px;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.28;
       cursor: pointer;
+      color: #ffffff;
     }
 
-    .card-meta { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
-    .card-desc { font-size: 13px; color: #cbd5e1; line-height: 1.4; }
+    .card-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
 
     .promo-tag {
       background: var(--amber-soft);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      border: 1px solid rgba(245, 158, 11, 0.32);
       color: #fcd34d;
       font-size: 12px;
-      padding: 6px 9px;
+      padding: 7px 10px;
       border-radius: 10px;
     }
 
@@ -370,7 +441,7 @@
       background: var(--surface-2);
       color: #cbd5e1;
       border-radius: 10px;
-      padding: 6px 9px;
+      padding: 6px 10px;
       font-size: 13px;
       cursor: pointer;
     }
@@ -379,10 +450,10 @@
     /* Native Ad Banner */
     .ad-card {
       grid-column: 1 / -1;
-      background: linear-gradient(120deg, rgba(245,158,11,0.12), rgba(16,185,129,0.1));
-      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: linear-gradient(120deg, rgba(245,158,11,0.13), rgba(16,185,129,0.11));
+      border: 1px solid rgba(245, 158, 11, 0.36);
       border-radius: var(--radius);
-      padding: 14px;
+      padding: 16px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -398,7 +469,7 @@
       letter-spacing: 0.06em;
       color: var(--amber);
       background: var(--amber-soft);
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 6px;
       margin-bottom: 5px;
     }
@@ -408,27 +479,27 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 14px;
+      padding: 16px;
     }
 
     .map-canvas {
       position: relative;
-      height: 360px;
+      height: 370px;
       border-radius: 14px;
       overflow: hidden;
       background:
-        radial-gradient(circle at 22% 28%, rgba(16, 185, 129, 0.12), transparent 36%),
-        radial-gradient(circle at 76% 68%, rgba(245, 158, 11, 0.12), transparent 40%),
+        radial-gradient(circle at 22% 28%, rgba(16, 185, 129, 0.14), transparent 38%),
+        radial-gradient(circle at 76% 68%, rgba(245, 158, 11, 0.14), transparent 42%),
         #0d141d;
       border: 1px solid var(--border);
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .map-road-h {
       position: absolute;
       left: 0; right: 0; top: 52%;
       height: 4px;
-      background: rgba(148, 163, 184, 0.22);
+      background: rgba(148, 163, 184, 0.24);
       transform: rotate(-4deg);
     }
 
@@ -436,7 +507,7 @@
       position: absolute;
       top: 0; bottom: 0; left: 48%;
       width: 4px;
-      background: rgba(148, 163, 184, 0.22);
+      background: rgba(148, 163, 184, 0.24);
       transform: rotate(6deg);
     }
 
@@ -444,10 +515,10 @@
       position: absolute;
       font-size: 11px;
       font-weight: 700;
-      color: rgba(226, 232, 240, 0.65);
-      background: rgba(11, 15, 20, 0.65);
-      padding: 3px 8px;
-      border-radius: 6px;
+      color: rgba(226, 232, 240, 0.72);
+      background: rgba(9, 13, 18, 0.72);
+      padding: 4px 9px;
+      border-radius: 7px;
       pointer-events: none;
     }
 
@@ -458,7 +529,7 @@
       background: #17202c;
       color: #f8fafc;
       border-radius: 999px;
-      padding: 5px 9px;
+      padding: 5px 10px;
       font-size: 11px;
       font-weight: 700;
       cursor: pointer;
@@ -478,7 +549,7 @@
       background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 12px;
+      padding: 13px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -491,11 +562,11 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 14px;
-      margin-bottom: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
     }
 
-    .panel-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .panel-title { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
     .muted { color: var(--muted); font-size: 13px; }
 
     .list-stack { display: grid; gap: 10px; margin-top: 10px; }
@@ -504,7 +575,7 @@
       background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px;
+      padding: 13px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -512,15 +583,15 @@
       gap: 10px;
     }
 
-    /* Compact 50px Bottom Nav */
+    /* Compact 52px Bottom Nav */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 50px;
+      height: 52px;
       z-index: 40;
-      background: rgba(11, 15, 20, 0.95);
+      background: rgba(9, 13, 18, 0.96);
       backdrop-filter: blur(14px);
       border-top: 1px solid var(--border);
       display: grid;
@@ -548,7 +619,7 @@
       position: fixed;
       inset: 0;
       z-index: 60;
-      background: rgba(0, 0, 0, 0.72);
+      background: rgba(0, 0, 0, 0.76);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -560,7 +631,7 @@
 
     .modal {
       width: 100%;
-      max-width: 660px;
+      max-width: 670px;
       max-height: 90vh;
       overflow-y: auto;
       background: var(--surface);
@@ -579,11 +650,12 @@
 
     .modal-cover {
       width: 100%;
-      height: 225px;
+      height: 235px;
       object-fit: cover;
       border-radius: 14px;
       margin-bottom: 12px;
       border: 1px solid var(--border);
+      background: #161f2c;
     }
 
     .tabs-inline {
@@ -602,14 +674,14 @@
 
     .toast {
       position: fixed;
-      bottom: 62px;
+      bottom: 64px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
       background: #10b981;
       color: #04130c;
       font-weight: 700;
       font-size: 12px;
-      padding: 8px 14px;
+      padding: 8px 15px;
       border-radius: 999px;
       opacity: 0;
       pointer-events: none;
@@ -630,12 +702,11 @@
     }
 
     .admin-badge {
-      position: relative;
       background: var(--amber);
       color: #140e02;
       font-size: 10px;
       font-weight: 800;
-      padding: 1px 5px;
+      padding: 1px 6px;
       border-radius: 999px;
       margin-left: 2px;
     }
@@ -695,28 +766,35 @@
 
   <script>
     (function () {
-      const STORAGE_KEY = "khashuri_city_guide_v2026_1";
+      const STORAGE_KEY = "khashuri_city_guide_v2026_2";
 
-      function makeSvgCover(label, sublabel, accentA, accentB) {
-        const safeLabel = String(label || "Khashuri").replace(/[<>&"]/g, "");
-        const safeSub = String(sublabel || "ქალაქის გიდი").replace(/[<>&"]/g, "");
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440">
+      // Clean, text-free scenic SVG fallback art per category if an external photo is offline
+      function makeFallbackArt(category) {
+        const themes = {
+          hero: { a: "#0f2922", b: "#1e3a5f", c: "#10b981" },
+          food: { a: "#3b1d14", b: "#1e293b", c: "#f59e0b" },
+          hotels: { a: "#0f2e28", b: "#172554", c: "#34d399" },
+          health: { a: "#0c2d3a", b: "#1e293b", c: "#38bdf8" },
+          auto: { a: "#1f242d", b: "#0f172a", c: "#f59e0b" },
+          market: { a: "#2e2412", b: "#142923", c: "#fbbf24" }
+        };
+        const t = themes[category] || themes.food;
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="460" viewBox="0 0 800 460">
           <defs>
-            <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="${accentA}"/>
-              <stop offset="100%" stop-color="${accentB}"/>
+            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="${t.a}"/>
+              <stop offset="100%" stop-color="${t.b}"/>
             </linearGradient>
           </defs>
-          <rect width="800" height="440" fill="url(#g)"/>
-          <circle cx="670" cy="85" r="120" fill="#ffffff" fill-opacity="0.06"/>
-          <circle cx="130" cy="360" r="150" fill="#ffffff" fill-opacity="0.05"/>
-          <rect x="44" y="44" width="712" height="352" rx="24" fill="#0b0f14" fill-opacity="0.45" stroke="#ffffff" stroke-opacity="0.16"/>
-          <text x="76" y="195" fill="#f8fafc" font-family="Inter, Noto Sans Georgian, sans-serif" font-size="38" font-weight="800">${safeLabel}</text>
-          <text x="76" y="242" fill="#cbd5e1" font-family="Inter, Noto Sans Georgian, sans-serif" font-size="22" font-weight="500">${safeSub}</text>
-          <text x="76" y="348" fill="#fbbf24" font-family="Inter, Noto Sans Georgian, sans-serif" font-size="18" font-weight="700">ХАШУРИ · ხაშური · ГОРОДГИД</text>
+          <rect width="800" height="460" fill="url(#bg)"/>
+          <path d="M0 340 Q 200 250 420 320 T 800 270 L 800 460 L 0 460 Z" fill="${t.c}" fill-opacity="0.16"/>
+          <path d="M0 390 Q 260 310 520 375 T 800 340 L 800 460 L 0 460 Z" fill="#ffffff" fill-opacity="0.06"/>
+          <circle cx="650" cy="110" r="70" fill="${t.c}" fill-opacity="0.18"/>
         </svg>`;
         return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
       }
+
+      const HERO_PHOTO = "https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=1280&q=80";
 
       const INITIAL_ORGS = [
         {
@@ -741,7 +819,7 @@
           promoRu: "Столик для компании — подача горячих блюд к приезду",
           promoGe: "ჯგუფური ჯავშნისას ცხელი კერძების დროული მომზადება",
           pinX: 46, pinY: 48,
-          cover: makeSvgCover("Restaurant Kevri", "ქართული სამზარეულო · ხაშური", "#1e293b", "#065f46"),
+          cover: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
           reviews: [
             { id: "r1", author: "Гиорги", stars: 5, text: "Отличные хинкали и быстрое обслуживание в центре города.", reply: "" }
           ],
@@ -771,7 +849,7 @@
           promoRu: "Предзаказ на вынос по звонку",
           promoGe: "წინასწარი შეკვეთა გატანით ტელეფონით",
           pinX: 54, pinY: 42,
-          cover: makeSvgCover("Pontiki • პონტიკი", "4.7★ · 177 შეფასება", "#1f2937", "#92400e"),
+          cover: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -797,7 +875,7 @@
           promoRu: "Бронь столика на вечер",
           promoGe: "მაგიდის დაჯავშნა საღამოსთვის",
           pinX: 40, pinY: 56,
-          cover: makeSvgCover("რაჭველებთან", "Rachvelebtan · 4.8★", "#18212d", "#0f766e"),
+          cover: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -823,7 +901,7 @@
           promoRu: "Приём банкетов и семейных ужинов",
           promoGe: "საოჯახო ვახშმებისა და ღონისძიებების მიღება",
           pinX: 68, pinY: 28,
-          cover: makeSvgCover("Restaurant Diaokhi", "რესტორანი დიაოხი · 4.5★", "#1e293b", "#7c2d12"),
+          cover: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -849,7 +927,7 @@
           promoRu: "Бронь столов в вечернее время",
           promoGe: "მაგიდების ჯავშანი საღამოს საათებში",
           pinX: 58, pinY: 60,
-          cover: makeSvgCover("Bora-Bora • ბორა-ბორა", "კაფე-ბარი · 4.5★", "#17202c", "#3730a3"),
+          cover: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -875,7 +953,7 @@
           promoRu: "Свежий кофе и горячие блюда в течение дня",
           promoGe: "ახალი ყავა და ცხელი კერძები მთელი დღის განმავლობაში",
           pinX: 28, pinY: 64,
-          cover: makeSvgCover("Cafe MelBros", "კაფე · 4.5★", "#1e293b", "#047857"),
+          cover: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -901,7 +979,7 @@
           promoRu: "Индивидуальные заказы тортов к дате",
           promoGe: "ინდივიდუალური ტორტების შეკვეთა თარიღის მიხედვით",
           pinX: 50, pinY: 35,
-          cover: makeSvgCover("Cake House Magnifico", "დესერტები და ტორტები · 4.6★", "#1f2937", "#9d174d"),
+          cover: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -927,7 +1005,7 @@
           promoRu: "Бронирование номеров и отдыха на выходные",
           promoGe: "ნომრების დაჯავშნა და დასვენება შაბათ-კვირას",
           pinX: 20, pinY: 26,
-          cover: makeSvgCover("Mtserlebi Resort", "კურორტი · 4.6★", "#0f172a", "#065f46"),
+          cover: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -953,7 +1031,7 @@
           promoRu: "Круглосуточное заселение по звонку",
           promoGe: "24/7 განთავსება წინასწარი ზარით",
           pinX: 43, pinY: 42,
-          cover: makeSvgCover("Iveria Hotel", "სასტუმრო ხაშურში · 4.3★", "#1e293b", "#1d4ed8"),
+          cover: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -979,7 +1057,7 @@
           promoRu: "Прямое бронирование проживания",
           promoGe: "პირდაპირი ჯავშანი სტუმრებისთვის",
           pinX: 25, pinY: 36,
-          cover: makeSvgCover("Gvirilas Sakhli", "საოჯახო სასტუმრო · 4.5★", "#18212d", "#047857"),
+          cover: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1005,7 +1083,7 @@
           promoRu: "Работает круглосуточно без выходных",
           promoGe: "მუშაობს 24/7 დასვენების დღეების გარეშე",
           pinX: 52, pinY: 52,
-          cover: makeSvgCover("PSP Pharmacy 24/7", "აფთიაქი · 24/7", "#0f172a", "#059669"),
+          cover: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1031,7 +1109,7 @@
           promoRu: "Уточнение наличия препаратов по телефону",
           promoGe: "მედიკამენტების არსებობის გადამოწმება ტელეფონით",
           pinX: 45, pinY: 62,
-          cover: makeSvgCover("Aversi Khashuri 1", "ავერსის აფთიაქი · 4.5★", "#18212d", "#0284c7"),
+          cover: "https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1057,7 +1135,7 @@
           promoRu: "Приёмная и справочная линия",
           promoGe: "სამედიცინო ცენტრის ცხელი ხაზი",
           pinX: 61, pinY: 48,
-          cover: makeSvgCover("Khashuri Hospital", "სამედიცინო ცენტრი", "#1e293b", "#be123c"),
+          cover: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1083,7 +1161,7 @@
           promoRu: "Осмотр кузова и запись на ремонт",
           promoGe: "ავტომობილის დათვალიერება და ჩაწერა",
           pinX: 74, pinY: 54,
-          cover: makeSvgCover("PDR Khachidze Servis", "5.0★ · 68 შეფასება", "#18212d", "#b45309"),
+          cover: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1109,7 +1187,7 @@
           promoRu: "Запись на диагностику и ТО",
           promoGe: "ჩაწერა დიაგნოსტიკასა და სერვისზე",
           pinX: 34, pinY: 74,
-          cover: makeSvgCover("L-D Motors", "ავტოსერვისი · 5.0★", "#1e293b", "#334155"),
+          cover: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1135,7 +1213,7 @@
           promoRu: "Консультация мастера по телефону",
           promoGe: "ხელოსნის კონსულტაცია ტელეფონით",
           pinX: 80, pinY: 40,
-          cover: makeSvgCover("ავტოსერვისი ხაშური", "სერვის ცენტრი · 4.6★", "#18212d", "#0f766e"),
+          cover: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1161,7 +1239,7 @@
           promoRu: "Ежедневные товары в одном месте",
           promoGe: "ყოველდღიური პროდუქტები ერთ სივრცეში",
           pinX: 56, pinY: 22,
-          cover: makeSvgCover("Geo ჰიპერმარკეტი", "ჰიპერმარკეტი · 4.6★", "#1e293b", "#047857"),
+          cover: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         },
@@ -1187,7 +1265,7 @@
           promoRu: "Утренний привоз фермерской продукции",
           promoGe: "ადგილობრივი პროდუქტის დილის მიწოდება",
           pinX: 48, pinY: 72,
-          cover: makeSvgCover("Farmers' Market", "აგრარული ბაზარი · 4.1★", "#18212d", "#92400e"),
+          cover: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=80",
           reviews: [],
           bookings: []
         }
@@ -1286,9 +1364,16 @@
           const raw = localStorage.getItem(STORAGE_KEY);
           if (!raw) return createDefaultState();
           const parsed = JSON.parse(raw);
-          return Object.assign(createDefaultState(), parsed, {
-            orgs: Array.isArray(parsed.orgs) && parsed.orgs.length ? parsed.orgs : INITIAL_ORGS
-          });
+          const mergedOrgs = Array.isArray(parsed.orgs) && parsed.orgs.length
+            ? parsed.orgs.map((savedOrg) => {
+                const fresh = INITIAL_ORGS.find((i) => i.id === savedOrg.id);
+                if (fresh && (!savedOrg.cover || savedOrg.cover.startsWith("data:image/svg+xml"))) {
+                  return Object.assign({}, savedOrg, { cover: fresh.cover });
+                }
+                return savedOrg;
+              })
+            : INITIAL_ORGS;
+          return Object.assign(createDefaultState(), parsed, { orgs: mergedOrgs });
         } catch (err) {
           return createDefaultState();
         }
@@ -1300,7 +1385,7 @@
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
         } catch (err) {
-          // ignore storage quota errors
+          // ignore storage errors
         }
       }
 
@@ -1404,23 +1489,19 @@
       function renderCatalog() {
         const list = getFilteredOrgs();
         const favCount = state.favorites.length;
-        const heroBanner = makeSvgCover(
-          state.lang === "ge" ? "ხაშურის ქალაქის გიდი" : "ГородГид Хашури",
-          state.lang === "ge" ? "18 ორგანიზაცია, რუკა, განცხადებები და ტრანსპორტი" : "18 проверенных мест Хашури, карта, объявления и маршрутки",
-          "#0f172a",
-          "#065f46"
-        );
+        const heroFallback = makeFallbackArt("hero");
 
         const cats = ["all", "food", "hotels", "health", "auto", "market"];
         const districts = ["all", "center", "station", "surami", "bypass"];
 
         const cardsHtml = list.map((org, idx) => {
           const isFav = state.favorites.includes(org.id);
-          const safeImg = org.cover || makeSvgCover(orgName(org), catLabel(org.category), "#18212d", "#0f766e");
+          const fallbackUrl = makeFallbackArt(org.category);
+          const safeImg = org.cover || fallbackUrl;
           const card = `
             <article class="card ${org.vip ? "is-vip" : ""}" data-org-id="${org.id}">
               <div class="card-media" data-action="open-org" data-org-id="${org.id}">
-                <img src="${safeImg}" alt="${orgName(org)}" loading="lazy" />
+                <img src="${safeImg}" alt="${orgName(org)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackUrl}';" />
                 <div class="card-badges">
                   <span class="badge badge-cat">${catLabel(org.category)}</span>
                   ${org.vip ? `<span class="badge badge-vip mtavruli">VIP · ${t("ТОП", "ტოპ")}</span>` : ""}
@@ -1472,11 +1553,12 @@
 
         return `
           <section class="hero">
-            <img class="hero-bg" src="${heroBanner}" alt="Khashuri" />
+            <img class="hero-bg" src="${HERO_PHOTO}" alt="Khashuri Georgia" onerror="this.onerror=null;this.src='${heroFallback}';" />
             <div class="hero-overlay">
               <div>
-                <h1 class="mtavruli">${t("ГородГид Хашури — всё о городе", "ხაშურის ქალაქის გიდი — ყველაფერი ქალაქზე")}</h1>
-                <p>${t("Рестораны, отели, аптеки, автосервисы, маркеты, объявления и маршрутки в одном месте.", "კვება, სასტუმროები, აფთიაქები, ავტოსერვისი, მარკეტები, განცხადებები და ტრანსპორტი.")}</p>
+                <span class="hero-kicker">${t("Шида Картли · Грузия", "შიდა ქართლი · საქართველო")}</span>
+                <h1 class="mtavruli">${t("ГородГид Хашури", "ხაშურის ქალაქის გიდი")}</h1>
+                <p>${t("18 проверенных мест Хашури, карта районов, объявления и маршрутки в одном приложении.", "18 ორგანიზაცია ხაშურში, უბნების რუკა, განცხადებები და ტრანსპორტი ერთ სივრცეში.")}</p>
               </div>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
                 <button type="button" class="btn btn-amber btn-sm" data-action="set-tab" data-tab="ads">+ ${t("Объявление", "განცხადება")}</button>
@@ -1488,7 +1570,7 @@
           <section class="controls">
             <div class="search-row">
               <input type="search" class="input" id="search-input" value="${state.search.replace(/"/g, "&quot;")}" placeholder="${t("Поиск по названию, улице или услуге...", "ძებნა სახელით, ქუჩით ან სერვისით...")}" />
-              <select class="select" id="sort-select" style="width:auto;min-width:140px;">
+              <select class="select" id="sort-select" style="width:auto;min-width:145px;">
                 <option value="vip" ${state.sort === "vip" ? "selected" : ""}>${t("Сначала VIP / Топ", "VIP / ტოპ")}</option>
                 <option value="rating" ${state.sort === "rating" ? "selected" : ""}>${t("По рейтингу ★", "რეიტინგით ★")}</option>
                 <option value="reviews" ${state.sort === "reviews" ? "selected" : ""}>${t("По отзывам", "შეფასებებით")}</option>
@@ -1732,6 +1814,7 @@
 
         const activeSub = subTab || "info";
         const isFav = state.favorites.includes(org.id);
+        const fallbackUrl = makeFallbackArt(org.category);
 
         const infoBlock = `
           <p class="card-desc" style="margin-bottom:10px;">${orgDesc(org)}</p>
@@ -1843,6 +1926,7 @@
               </select>
               <input type="text" class="input" id="owner-edit-promo-ru" value="${(org.promoRu || "").replace(/"/g, "&quot;")}" placeholder="${t("Акция / спецпредложение (RU)", "აქცია / შეთავაზება (RU)")}" />
               <input type="text" class="input" id="owner-edit-promo-ge" value="${(org.promoGe || "").replace(/"/g, "&quot;")}" placeholder="${t("აქცია / შეთავაზება (GE)", "აქცია / შეთავაზება (GE)")}" />
+              <input type="url" class="input" id="owner-edit-cover" value="${(org.cover || "").replace(/"/g, "&quot;")}" placeholder="${t("Ссылка на фото (https://...)", "ფოტოს ბმული (https://...)")}" style="grid-column:1/-1;" />
               <button type="submit" class="btn btn-emerald" style="grid-column:1/-1;">${t("Сохранить изменения", "ცვლილებების შენახვა")}</button>
             </form>
 
@@ -1863,7 +1947,7 @@
             <h2 class="mtavruli" style="font-size:18px;font-weight:800;">${orgName(org)}</h2>
             <button type="button" class="btn btn-sm" data-action="close-modal">✕</button>
           </div>
-          <img class="modal-cover" src="${org.cover}" alt="${orgName(org)}" />
+          <img class="modal-cover" src="${org.cover || fallbackUrl}" alt="${orgName(org)}" onerror="this.onerror=null;this.src='${fallbackUrl}';" />
           <div class="tabs-inline">
             <button type="button" class="pill ${activeSub === "info" ? "active" : ""}" data-action="org-subtab" data-org-id="${org.id}" data-subtab="info">${t("Инфо и запись", "ინფო და ჯავშანი")}</button>
             <button type="button" class="pill ${activeSub === "reviews" ? "active" : ""}" data-action="org-subtab" data-org-id="${org.id}" data-subtab="reviews">${t("Отзывы", "შეფასებები")} (${(org.reviews || []).length})</button>
@@ -1898,6 +1982,7 @@
             <input type="text" class="input" id="new-biz-addr" placeholder="${t("Адрес в Хашури", "მისამართი ხაშურში")}" required />
             <input type="text" class="input" id="new-biz-phone" placeholder="${t("Телефон (+995 ...)", "ტელეფონი (+995 ...)")}" required />
             <input type="text" class="input" id="new-biz-hours" value="09:00–21:00" placeholder="${t("Часы работы", "სამუშაო საათები")}" />
+            <input type="url" class="input" id="new-biz-cover" placeholder="${t("Ссылка на фото (необязательно)", "ფოტოს ბმული (არასავალდებულო)")}" />
             <input type="text" class="input" id="new-biz-desc" placeholder="${t("Краткое описание", "მოკლე აღწერა")}" style="grid-column:1/-1;" />
             <button type="submit" class="btn btn-emerald" style="grid-column:1/-1;">${t("Добавить в каталог", "კატალოგში დამატება")}</button>
           </form>
@@ -1974,7 +2059,6 @@
         `;
       }
 
-      // Single delegated event listener on document
       document.addEventListener("click", (e) => {
         const target = e.target.closest("[data-action]");
         if (!target) {
@@ -2189,6 +2273,8 @@
           org.statusOpen = document.getElementById("owner-edit-status").value === "open";
           org.promoRu = document.getElementById("owner-edit-promo-ru").value.trim();
           org.promoGe = document.getElementById("owner-edit-promo-ge").value.trim();
+          const coverVal = document.getElementById("owner-edit-cover").value.trim();
+          if (coverVal) org.cover = coverVal;
           saveState();
           render();
           showToast(t("Изменения сохранены!", "ცვლილებები შენახულია!"));
@@ -2242,6 +2328,7 @@
           const addr = document.getElementById("new-biz-addr").value.trim();
           const phone = document.getElementById("new-biz-phone").value.trim();
           const hours = document.getElementById("new-biz-hours").value.trim() || "09:00–21:00";
+          const coverInput = document.getElementById("new-biz-cover").value.trim();
           const desc = document.getElementById("new-biz-desc").value.trim() || t("Организация в г. Хашури.", "ორგანიზაცია ხაშურში.");
 
           state.orgs.unshift({
@@ -2267,7 +2354,7 @@
             promoGe: "",
             pinX: 50,
             pinY: 50,
-            cover: makeSvgCover(nameRu, nameGe, "#18212d", "#059669"),
+            cover: coverInput || makeFallbackArt(cat),
             reviews: [],
             bookings: []
           });
@@ -2317,3 +2404,10 @@
   </script>
 </body>
 </html>
+"""
+
+file_name = "khashuri-city-guide-index-v2.html"
+with open(file_name, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Saved:", file_name, len(html_content))
